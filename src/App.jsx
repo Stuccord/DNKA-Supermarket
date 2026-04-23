@@ -22,7 +22,7 @@ import SearchPage from './pages/SearchPage';
 function App() {
   return (
     <HelmetProvider>
-      <Router>
+      <Router basename="/DNKA-Supermarket">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
