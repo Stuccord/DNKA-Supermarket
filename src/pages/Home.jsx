@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { ShoppingCart, Heart, MapPin, Phone, Package, Tag, Clock, ShieldCheck, Award, ThumbsUp, Truck, Wifi, Coffee, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import AddToCartBtn from '../components/AddToCartBtn';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -94,28 +95,28 @@ const Home = () => {
               <div className="product-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=400&q=80")' }}></div>
               <h3>Premium Olive Oil</h3>
               <p className="product-price">GH₵ 120 <span className="product-old-price">GH₵ 150</span></p>
-              <button className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '12px', width: '100%', marginTop: '10px' }}>Add to Cart</button>
+              <AddToCartBtn product={{ id: 'home1', name: 'Premium Olive Oil', price: 120, image: 'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=400&q=80' }} />
             </div>
             
             <div className="product-card hover-lift">
               <div className="product-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=400&q=80")' }}></div>
               <h3>Artisan Coffee Beans</h3>
               <p className="product-price">GH₵ 85 <span className="product-old-price">GH₵ 110</span></p>
-              <button className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '12px', width: '100%', marginTop: '10px' }}>Add to Cart</button>
+              <AddToCartBtn product={{ id: 'home2', name: 'Artisan Coffee Beans', price: 85, image: 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=400&q=80' }} />
             </div>
 
             <div className="product-card hover-lift">
               <div className="product-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=80")' }}></div>
               <h3>Classic Cookware Set</h3>
               <p className="product-price">GH₵ 450 <span className="product-old-price">GH₵ 600</span></p>
-              <button className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '12px', width: '100%', marginTop: '10px' }}>Add to Cart</button>
+              <AddToCartBtn product={{ id: 'home3', name: 'Classic Cookware Set', price: 450, image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=80' }} />
             </div>
 
             <div className="product-card hover-lift">
               <div className="product-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80")' }}></div>
               <h3>Luxury Bath Towels</h3>
               <p className="product-price">GH₵ 150 <span className="product-old-price">GH₵ 200</span></p>
-              <button className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '12px', width: '100%', marginTop: '10px' }}>Add to Cart</button>
+              <AddToCartBtn product={{ id: 'home4', name: 'Luxury Bath Towels', price: 150, image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80' }} />
             </div>
           </div>
         </div>
