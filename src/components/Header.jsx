@@ -35,10 +35,21 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <nav className="nav-container">
-          <Link to="/" className="logo">
-         <ShoppingCart size={28} color="#d4af37" />
-          DNKA<span>Mart</span>
-        </Link>
+          <button
+            className="logo"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            onClick={() => {
+              if (window.location.hash === '#/' || window.location.hash === '') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }
+            }}
+          >
+            <ShoppingCart size={28} color="#d4af37" />
+            DNKA<span>Mart</span>
+          </button>
         
         {/* Search Bar */}
         <form className="search-form" onSubmit={handleSearch}>
@@ -90,10 +101,22 @@ const Header = () => {
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-content">
-          <Link to="/" className="logo" style={{ marginBottom: '30px', fontSize: '28px' }} onClick={() => setIsMobileMenuOpen(false)}>
+          <button
+            className="logo"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', marginBottom: '30px', fontSize: '28px' }}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              if (window.location.hash === '#/' || window.location.hash === '') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }
+            }}
+          >
             <ShoppingCart size={24} color="#d4af37" />
             DNKA<span>Mart</span>
-          </Link>
+          </button>
           
           <form className="mobile-search" onSubmit={handleSearch}>
             <input 
