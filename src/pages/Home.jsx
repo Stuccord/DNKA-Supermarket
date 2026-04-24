@@ -59,8 +59,12 @@ const Home = () => {
                 <h1 className="animate-fade-in">{slide.title}</h1>
                 <p className="animate-fade-in">{slide.subtitle}</p>
                 <div className="hero-btns animate-fade-in">
-                  <Link to={slide.link} className="btn btn-primary">{slide.cta}</Link>
-                  <a href="#location" className="btn btn-outline">Visit Store</a>
+                  {slide.link.startsWith('#') ? (
+                    <button onClick={() => document.querySelector(slide.link)?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-primary">{slide.cta}</button>
+                  ) : (
+                    <Link to={slide.link} className="btn btn-primary">{slide.cta}</Link>
+                  )}
+                  <button onClick={() => document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' })} className="btn btn-outline">Visit Store</button>
                 </div>
               </div>
             </div>
