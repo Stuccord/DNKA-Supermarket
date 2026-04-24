@@ -32,9 +32,11 @@ const CartPage = () => {
                 <div style={{ display: 'flex', gap: '30px', paddingBottom: '30px', marginBottom: '30px', borderBottom: '1px solid #f5f5f5' }}>
                   <div style={{ width: '140px', height: '140px', backgroundImage: 'url("https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=300&q=80")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', border: '1px solid var(--border-color)' }}></div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>Premium Olive Oil</h3>
-                      <span style={{ fontWeight: 'bold', fontSize: '20px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif" }}>GH₵ 120.00</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <h3 style={{ fontSize: '20px', marginBottom: '8px', color: 'var(--primary-green)' }}>Premium Olive Oil</h3>
+                      <div style={{ textAlign: 'right' }}>
+                        <span style={{ fontWeight: '800', fontSize: '22px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif", display: 'block' }}>GH₵ 120.00</span>
+                      </div>
                     </div>
                     <p style={{ color: 'var(--text-light)', fontSize: '14px', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px' }}>Gourmet Pantry</p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '25px', marginTop: 'auto' }}>
@@ -54,10 +56,10 @@ const CartPage = () => {
                 <div style={{ display: 'flex', gap: '30px', paddingBottom: '10px' }}>
                   <div style={{ width: '140px', height: '140px', backgroundImage: 'url("https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=300&q=80")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', border: '1px solid var(--border-color)' }}></div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>Artisan Coffee Beans</h3>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <h3 style={{ fontSize: '20px', marginBottom: '8px', color: 'var(--primary-green)' }}>Artisan Coffee Beans</h3>
                       <div style={{ textAlign: 'right' }}>
-                        <span style={{ fontWeight: 'bold', fontSize: '20px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif" }}>GH₵ 170.00</span>
+                        <span style={{ fontWeight: '800', fontSize: '22px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif", display: 'block' }}>GH₵ 170.00</span>
                         <p style={{ fontSize: '12px', color: 'var(--text-light)', marginTop: '2px' }}>GH₵ 85.00 each</p>
                       </div>
                     </div>
