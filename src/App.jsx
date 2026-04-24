@@ -46,6 +46,7 @@ function App() {
             <Route path="blog/grocery-koforidua" element={<GroceryPost />} />
             <Route path="blog/affordable-household" element={<HouseholdPost />} />
             <Route path="blog/save-money-shopping" element={<SaveMoneyPost />} />
+            <Route path="*" element={<Home />} />
           </Route>
         </Routes>
       </Router>
