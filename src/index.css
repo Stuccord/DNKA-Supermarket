@@ -1787,3 +1787,123 @@ a.contact-detail-text:hover {
   from { transform: scale(0); }
   to   { transform: scale(1); }
 }
+
+/* ===== About Page Responsive Styles ===== */
+
+/* Layout 1: Intro Section */
+.about-layout-1 {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-title-large {
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.about-img-1 {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Layout 2: Impact Section */
+.about-layout-2 {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-featured-content {
+  padding: 80px;
+}
+
+.about-title-medium {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.about-stats-flex {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* CTA Section */
+.about-cta-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Media Queries for About Page */
+@media (max-width: 992px) {
+  .about-layout-1 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-layout-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-featured-content {
+    padding: 40px;
+  }
+  
+  .about-img-1 {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-title-large {
+    font-size: 32px;
+  }
+
+  .about-title-medium {
+    font-size: 28px;
+  }
+
+  .about-stats-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .about-cta-title {
+    font-size: 26px;
+  }
+  
+  .about-cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title-large {
+    font-size: 28px;
+  }
+  
+  .about-img-1 {
+    height: 300px;
+  }
+  
+  .about-featured-content {
+    padding: 30px 20px;
+  }
+}
+

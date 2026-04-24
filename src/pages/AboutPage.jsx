@@ -19,9 +19,9 @@ const AboutPage = () => {
 
       <section className="section bg-white">
         <div className="container">
-          <div className="blog-layout" style={{ gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center' }}>
+          <div className="about-layout-1">
             <div>
-              <h2 style={{fontSize: '42px', marginBottom: '30px'}}>Defining the Standard of Excellence</h2>
+              <h2 className="about-title-large">Defining the Standard of Excellence</h2>
               <p className="lead-text" style={{ fontSize: '22px', fontStyle: 'italic', marginBottom: '30px', color: 'var(--primary-green)' }}>
                 At DNKA Supermarket, we believe that everyday shopping should be an exceptional experience.
               </p>
@@ -33,7 +33,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div style={{ padding: '20px' }}>
-              <div style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80")', height: '500px', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}></div>
+              <div className="about-img-1" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80")' }}></div>
             </div>
           </div>
         </div>
@@ -74,15 +74,15 @@ const AboutPage = () => {
 
       <section className="section bg-white">
         <div className="container">
-          <div className="blog-featured" style={{gridTemplateColumns: '0.8fr 1.2fr'}}>
+          <div className="about-layout-2">
             <div className="blog-featured-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&q=80")' }}></div>
-            <div className="blog-featured-content" style={{padding: '80px'}}>
+            <div className="about-featured-content">
               <span className="blog-featured-tag">Our Impact</span>
-              <h2 style={{fontSize: '36px'}}>A Pillar of the Eastern Region</h2>
+              <h2 className="about-title-medium">A Pillar of the Eastern Region</h2>
               <p style={{fontSize: '18px'}}>
                 Beyond retail, DNKA Supermarket serves as an economic engine for Koforidua. By prioritizing local employment and providing a platform for regional producers, we are helping build a more resilient and prosperous community.
               </p>
-              <div style={{display: 'flex', gap: '40px', marginTop: '30px'}}>
+              <div className="about-stats-flex">
                 <div>
                   <h4 style={{fontSize: '32px', color: 'var(--primary-orange)'}}>100%</h4>
                   <p style={{fontSize: '14px', textTransform: 'uppercase', fontWeight: 'bold'}}>Freshness Guarantee</p>
@@ -103,9 +103,9 @@ const AboutPage = () => {
 
       <section className="section bg-light" style={{padding: '80px 0'}}>
         <div className="container text-center">
-          <h2 style={{fontSize: '32px', marginBottom: '20px'}}>Ready to Experience DNKA?</h2>
+          <h2 className="about-cta-title">Ready to Experience DNKA?</h2>
           <p style={{fontSize: '18px', color: 'var(--text-light)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px'}}>Join thousands of satisfied shoppers who have made us their primary choice for quality and elegance.</p>
-          <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
+          <div className="about-cta-buttons">
             <Link to="/contact" className="btn btn-primary">Visit Our Store</Link>
             <Link to="/blog" className="btn btn-outline" style={{borderColor: 'var(--primary-green)', color: 'var(--primary-green)'}}>Read Our Journal</Link>
           </div>
