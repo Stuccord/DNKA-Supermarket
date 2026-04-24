@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { ShieldCheck, Award, ThumbsUp, Heart, Users, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   return (
@@ -105,8 +106,8 @@ const AboutPage = () => {
           <h2 style={{fontSize: '32px', marginBottom: '20px'}}>Ready to Experience DNKA?</h2>
           <p style={{fontSize: '18px', color: 'var(--text-light)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px'}}>Join thousands of satisfied shoppers who have made us their primary choice for quality and elegance.</p>
           <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
-            <a href="/contact" className="btn btn-primary">Visit Our Store</a>
-            <a href="/blog" className="btn btn-outline" style={{borderColor: 'var(--primary-green)', color: 'var(--primary-green)'}}>Read Our Journal</a>
+            <Link to="/contact" className="btn btn-primary">Visit Our Store</Link>
+            <Link to="/blog" className="btn btn-outline" style={{borderColor: 'var(--primary-green)', color: 'var(--primary-green)'}}>Read Our Journal</Link>
           </div>
         </div>
       </section>
