@@ -422,7 +422,6 @@ ul {
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   transition: all 0.4s ease;
   border: 1px solid var(--border-color);
-  group: hover;
 }
 
 .img-card:hover {
