@@ -114,7 +114,6 @@ const Header = () => {
               <Link to="/contact">Contact</Link>
             </nav>
           </div>
-          </div>
           <div className="mobile-drawer-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
         </div>
       </div>
