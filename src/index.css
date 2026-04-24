@@ -139,6 +139,12 @@ ul {
   font-style: italic;
 }
 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 24px;
+  }
+}
+
 .nav-links {
   display: flex;
   gap: 35px;
@@ -188,6 +194,28 @@ ul {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero-btns {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+}
+
 .hero-btns {
   display: flex;
   gap: 20px;
@@ -216,6 +244,15 @@ ul {
   width: 80px;
   height: 3px;
   background-color: var(--primary-orange);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .section-title {
+    font-size: 32px;
+  }
 }
 
 /* Category Grid */
@@ -332,6 +369,18 @@ ul {
   opacity: 0.9;
   max-width: 600px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .promo-banner {
+    padding: 60px 20px;
+  }
+  .promo-banner h2 {
+    font-size: 36px;
+  }
+  .promo-banner p {
+    font-size: 16px;
+  }
 }
 
 /* Footer */
@@ -929,6 +978,14 @@ ul {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
+  .blog-featured {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-featured-img {
+    min-height: 300px;
+  }
+
   .blog-layout {
     grid-template-columns: 1fr;
   }
@@ -945,14 +1002,178 @@ ul {
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* We'll implement a simple mobile layout later or use the mobile menu button */
   }
   
+  .nav-container {
+    height: 70px;
+  }
+
   .post-header {
     padding: 100px 0 60px;
   }
   
   .post-header h1 {
     font-size: 32px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-col ul li {
+    justify-content: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: none;
+  }
+
+  .newsletter-form input {
+    border-radius: 4px;
+  }
+
+  .newsletter-form button {
+    border-radius: 4px;
+  }
+  
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .img-card-content {
+    padding: 20px 15px;
+  }
+
+  .blog-content {
+    padding: 25px 20px;
+  }
+}
+
+/* --- Mobile Drawer Styles --- */
+.mobile-drawer {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 90px);
+  z-index: 1000;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-drawer.open {
+  visibility: visible;
+}
+
+.mobile-drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 28, 21, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-drawer.open .mobile-drawer-overlay {
+  opacity: 1;
+}
+
+.mobile-drawer-content {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 85%;
+  max-width: 350px;
+  height: 100%;
+  background: var(--white);
+  padding: 30px;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open .mobile-drawer-content {
+  left: 0;
+}
+
+.mobile-search {
+  display: flex;
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.mobile-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 15px;
+  outline: none;
+  font-family: inherit;
+}
+
+.mobile-search button {
+  background: transparent;
+  border: none;
+  padding: 0 15px;
+  color: var(--primary-green);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-nav a {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-bottom: 1px solid #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mobile-nav-divider {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-orange);
+  margin: 20px 0 10px;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .mobile-drawer {
+    top: 70px;
+    height: calc(100vh - 70px);
   }
 }

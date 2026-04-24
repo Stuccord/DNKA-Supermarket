@@ -1,10 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Search, User, Menu, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { ShoppingCart, Search, User, Menu, ChevronDown, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [navigate]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -61,9 +67,46 @@ const Header = () => {
           <div className="nav-icons">
             <Link to="/cart" className="icon-btn" aria-label="Cart"><ShoppingCart size={22} /></Link>
             <button className="icon-btn" aria-label="User Account"><User size={22} /></button>
-            <button className="icon-btn mobile-menu-btn" aria-label="Menu"><Menu size={22} /></button>
+            <button 
+              className="icon-btn mobile-menu-btn" 
+              aria-label="Menu"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
         </nav>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-drawer-content">
+            <form className="mobile-search" onSubmit={handleSearch}>
+              <input 
+                type="text" 
+                placeholder="Search products..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button type="submit"><Search size={18} /></button>
+            </form>
+            
+            <nav className="mobile-nav">
+              <Link to="/">Home</Link>
+              <div className="mobile-nav-divider">Directories</div>
+              <Link to="/produce">Fresh Produce</Link>
+              <Link to="/kitchenware">Kitchen Elegance</Link>
+              <Link to="/household">Household Essentials</Link>
+              <Link to="/personal-care">Personal Care</Link>
+              <Link to="/electronics">Modern Electronics</Link>
+              <Link to="/gourmet">Gourmet Pantry</Link>
+              <div className="mobile-nav-divider">Company</div>
+              <Link to="/about">About Us</Link>
+              <Link to="/blog">Our Journal</Link>
+              <Link to="/contact">Contact Concierge</Link>
+            </nav>
+          </div>
+          <div className="mobile-drawer-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
+        </div>
       </div>
     </header>
   );
