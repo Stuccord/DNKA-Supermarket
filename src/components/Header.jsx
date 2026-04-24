@@ -21,7 +21,7 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [navigate]);
- Stone
+ 
 
   const handleSearch = (e) => {
     e.preventDefault();
