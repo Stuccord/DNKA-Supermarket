@@ -1,16 +1,27 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Search, User, Menu, ChevronDown, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [navigate]);
+ Stone
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,10 +32,11 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="container nav-container">
-        <Link to="/" className="logo">
-          <ShoppingCart size={28} color="#d4af37" />
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        <nav className="nav-container">
+          <Link to="/" className="logo">
+         <ShoppingCart size={28} color="#d4af37" />
           DNKA<span>Mart</span>
         </Link>
         
@@ -42,29 +54,26 @@ const Header = () => {
           </button>
         </form>
 
-        <nav className="nav-links">
-          <Link to="/">Home</Link>
-          
-          {/* Dropdown Menu */}
-          <div className="dropdown">
-            <button className="dropbtn">
-              Directory <ChevronDown size={14} style={{ marginLeft: '4px' }} />
-            </button>
-            <div className="dropdown-content">
-              <Link to="/produce">Fresh Produce</Link>
-              <Link to="/kitchenware">Kitchen Elegance</Link>
-              <Link to="/household">Household Essentials</Link>
-              <Link to="/personal-care">Personal Care</Link>
-              <Link to="/electronics">Modern Electronics</Link>
-              <Link to="/gourmet">Gourmet Pantry</Link>
+          <div className="nav-links">
+            <NavLink to="/" end>Home</NavLink>
+            <div className="dropdown">
+              <button className="dropbtn">
+                Directories <ChevronDown size={14} style={{ marginLeft: '5px' }} />
+              </button>
+              <div className="dropdown-content">
+                <Link to="/produce">Fresh Produce</Link>
+                <Link to="/kitchenware">Kitchen Elegance</Link>
+                <Link to="/household">Household Essentials</Link>
+                <Link to="/personal-care">Personal Care</Link>
+                <Link to="/electronics">Modern Electronics</Link>
+                <Link to="/gourmet">Gourmet Pantry</Link>
+              </div>
             </div>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </div>
-
-          <Link to="/about">About Us</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact</Link>
-          
-          <div className="nav-icons">
+         <div className="nav-icons">
             <Link to="/cart" className="icon-btn" aria-label="Cart"><ShoppingCart size={22} /></Link>
             <button className="icon-btn" aria-label="User Account"><User size={22} /></button>
             <button 
@@ -102,8 +111,9 @@ const Header = () => {
               <div className="mobile-nav-divider">Company</div>
               <Link to="/about">About Us</Link>
               <Link to="/blog">Our Journal</Link>
-              <Link to="/contact">Contact Concierge</Link>
+              <Link to="/contact">Contact</Link>
             </nav>
+          </div>
           </div>
           <div className="mobile-drawer-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
         </div>
