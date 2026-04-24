@@ -85,37 +85,37 @@ const Header = () => {
             </button>
           </div>
         </nav>
+      </div>
 
-        {/* Mobile Navigation Drawer */}
-        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
-          <div className="mobile-drawer-content">
-            <form className="mobile-search" onSubmit={handleSearch}>
-              <input 
-                type="text" 
-                placeholder="Search products..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button type="submit"><Search size={18} /></button>
-            </form>
-            
-            <nav className="mobile-nav">
-              <Link to="/">Home</Link>
-              <div className="mobile-nav-divider">Directories</div>
-              <Link to="/produce">Fresh Produce</Link>
-              <Link to="/kitchenware">Kitchen Elegance</Link>
-              <Link to="/household">Household Essentials</Link>
-              <Link to="/personal-care">Personal Care</Link>
-              <Link to="/electronics">Modern Electronics</Link>
-              <Link to="/gourmet">Gourmet Pantry</Link>
-              <div className="mobile-nav-divider">Company</div>
-              <Link to="/about">About Us</Link>
-              <Link to="/blog">Our Journal</Link>
-              <Link to="/contact">Contact</Link>
-            </nav>
-          </div>
-          <div className="mobile-drawer-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
+      {/* Mobile Navigation Drawer */}
+      <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-drawer-content">
+          <form className="mobile-search" onSubmit={handleSearch}>
+            <input 
+              type="text" 
+              placeholder="Search products..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit" aria-label="Search"><Search size={18} /></button>
+          </form>
+          
+          <nav className="mobile-nav">
+            <Link to="/">Home</Link>
+            <div className="mobile-nav-divider">Directories</div>
+            <Link to="/produce">Fresh Produce</Link>
+            <Link to="/kitchenware">Kitchen Elegance</Link>
+            <Link to="/household">Household Essentials</Link>
+            <Link to="/personal-care">Personal Care</Link>
+            <Link to="/electronics">Modern Electronics</Link>
+            <Link to="/gourmet">Gourmet Pantry</Link>
+            <div className="mobile-nav-divider">Company</div>
+            <Link to="/about">About Us</Link>
+            <Link to="/blog">Our Journal</Link>
+            <Link to="/contact">Contact</Link>
+          </nav>
         </div>
+        <div className="mobile-drawer-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
       </div>
     </header>
   );
