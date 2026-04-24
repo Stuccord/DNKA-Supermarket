@@ -20,13 +20,15 @@ import CartPage from './pages/CartPage';
 import SearchPage from './pages/SearchPage';
 
 import { CartProvider } from './context/CartContext';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <HelmetProvider>
       <CartProvider>
         <Router>
-        <Routes>
+          <ScrollToTop />
+          <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             
