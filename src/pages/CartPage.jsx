@@ -23,29 +23,27 @@ const CartPage = () => {
             
             {/* Cart Items */}
             <div className="blog-main">
-              <div style={{ backgroundColor: 'var(--white)', padding: '40px', borderRadius: '8px', border: '1px solid var(--border-color)', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '20px', marginBottom: '30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className="cart-container">
+                <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '20px', marginBottom: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <h2 style={{ fontSize: '24px', color: 'var(--primary-green)' }}>Shopping Bag (2 Items)</h2>
                 </div>
 
                 {/* Item 1 */}
-                <div style={{ display: 'flex', gap: '30px', paddingBottom: '30px', marginBottom: '30px', borderBottom: '1px solid #f5f5f5' }}>
-                  <div style={{ width: '140px', height: '140px', backgroundImage: 'url("https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=300&q=80")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', border: '1px solid var(--border-color)' }}></div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <h3 style={{ fontSize: '20px', marginBottom: '8px', color: 'var(--primary-green)' }}>Premium Olive Oil</h3>
-                      <div style={{ textAlign: 'right' }}>
-                        <span style={{ fontWeight: '800', fontSize: '22px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif", display: 'block' }}>GH₵ 120.00</span>
-                      </div>
+                <div className="cart-item">
+                  <div className="cart-item-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=300&q=80")' }}></div>
+                  <div className="cart-item-info">
+                    <div className="cart-item-header">
+                      <h3>Premium Olive Oil</h3>
+                      <div className="cart-item-price">GH₵ 120.00</div>
                     </div>
-                    <p style={{ color: 'var(--text-light)', fontSize: '14px', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px' }}>Gourmet Pantry</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '25px', marginTop: 'auto' }}>
-                      <div style={{ display: 'flex', border: '1px solid var(--border-color)', borderRadius: '30px', overflow: 'hidden', background: '#fcfcfc' }}>
-                        <button style={{ padding: '8px 18px', background: 'transparent', border: 'none', cursor: 'pointer', borderRight: '1px solid var(--border-color)', fontSize: '18px' }}>-</button>
-                        <span style={{ padding: '8px 18px', fontWeight: 'bold', minWidth: '40px', textAlign: 'center' }}>1</span>
-                        <button style={{ padding: '8px 18px', background: 'transparent', border: 'none', cursor: 'pointer', borderLeft: '1px solid var(--border-color)', fontSize: '18px' }}>+</button>
+                    <p className="cart-item-meta">Gourmet Pantry</p>
+                    <div className="cart-item-actions">
+                      <div className="quantity-selector">
+                        <button className="quantity-btn">-</button>
+                        <span className="quantity-value">1</span>
+                        <button className="quantity-btn">+</button>
                       </div>
-                      <button style={{ background: 'transparent', border: 'none', color: '#b33939', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                      <button className="remove-btn">
                         <Trash2 size={16} /> Remove
                       </button>
                     </div>
@@ -53,24 +51,24 @@ const CartPage = () => {
                 </div>
 
                 {/* Item 2 */}
-                <div style={{ display: 'flex', gap: '30px', paddingBottom: '10px' }}>
-                  <div style={{ width: '140px', height: '140px', backgroundImage: 'url("https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=300&q=80")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', border: '1px solid var(--border-color)' }}></div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <h3 style={{ fontSize: '20px', marginBottom: '8px', color: 'var(--primary-green)' }}>Artisan Coffee Beans</h3>
+                <div className="cart-item">
+                  <div className="cart-item-img" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=300&q=80")' }}></div>
+                  <div className="cart-item-info">
+                    <div className="cart-item-header">
+                      <h3>Artisan Coffee Beans</h3>
                       <div style={{ textAlign: 'right' }}>
-                        <span style={{ fontWeight: '800', fontSize: '22px', color: 'var(--primary-orange)', fontFamily: "'Playfair Display', serif", display: 'block' }}>GH₵ 170.00</span>
+                        <div className="cart-item-price">GH₵ 170.00</div>
                         <p style={{ fontSize: '12px', color: 'var(--text-light)', marginTop: '2px' }}>GH₵ 85.00 each</p>
                       </div>
                     </div>
-                    <p style={{ color: 'var(--text-light)', fontSize: '14px', marginBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px' }}>Gourmet Pantry</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
-                      <div style={{ display: 'flex', border: '1px solid var(--border-color)', borderRadius: '30px', overflow: 'hidden', background: '#fcfcfc' }}>
-                        <button style={{ padding: '8px 18px', background: 'transparent', border: 'none', cursor: 'pointer', borderRight: '1px solid var(--border-color)', fontSize: '18px' }}>-</button>
-                        <span style={{ padding: '8px 18px', fontWeight: 'bold', minWidth: '40px', textAlign: 'center' }}>2</span>
-                        <button style={{ padding: '8px 18px', background: 'transparent', border: 'none', cursor: 'pointer', borderLeft: '1px solid var(--border-color)', fontSize: '18px' }}>+</button>
+                    <p className="cart-item-meta">Gourmet Pantry</p>
+                    <div className="cart-item-actions">
+                      <div className="quantity-selector">
+                        <button className="quantity-btn">-</button>
+                        <span className="quantity-value">2</span>
+                        <button className="quantity-btn">+</button>
                       </div>
-                      <button style={{ background: 'transparent', border: 'none', color: '#b33939', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                      <button className="remove-btn">
                         <Trash2 size={16} /> Remove
                       </button>
                     </div>
@@ -79,16 +77,17 @@ const CartPage = () => {
               </div>
 
               {/* Guarantees */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginTop: '30px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '20px', background: 'var(--white)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              {/* Guarantees */}
+              <div className="guarantee-grid">
+                <div className="guarantee-item">
                   <ShieldCheck size={24} color="var(--primary-green)" />
                   <span style={{ fontSize: '13px', fontWeight: '600' }}>Secure Checkout</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '20px', background: 'var(--white)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <div className="guarantee-item">
                   <Truck size={24} color="var(--primary-green)" />
                   <span style={{ fontSize: '13px', fontWeight: '600' }}>Express Delivery</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '20px', background: 'var(--white)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <div className="guarantee-item">
                   <RefreshCw size={24} color="var(--primary-green)" />
                   <span style={{ fontSize: '13px', fontWeight: '600' }}>Easy Returns</span>
                 </div>
