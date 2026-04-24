@@ -1,70 +1,63 @@
 import { Helmet } from 'react-helmet-async';
-import { ShoppingCart } from 'lucide-react';
+import AddToCartBtn from '../components/AddToCartBtn';
 
 const products = [
-  { id: 1, name: "Luxury Bath Towels", price: "GH₵ 150", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" },
-  { id: 2, name: "Premium Detergent", price: "GH₵ 65", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" },
-  { id: 3, name: "Scented Candles", price: "GH₵ 40", image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=400&q=80" },
-  { id: 4, name: "Microfiber Cloths", price: "GH₵ 25", image: "https://images.unsplash.com/photo-1585672840611-66774e50882e?auto=format&fit=crop&w=400&q=80" },
-  { id: 5, name: "Fabric Softener", price: "GH₵ 45", image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=400&q=80" },
-  { id: 6, name: "Glass Cleaner", price: "GH₵ 30", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
-  { id: 7, name: "Air Freshener", price: "GH₵ 35", image: "https://images.unsplash.com/photo-1528740561666-dc2479bd08bd?auto=format&fit=crop&w=400&q=80" },
-  { id: 8, name: "Dishwashing Liquid", price: "GH₵ 20", image: "https://images.unsplash.com/photo-1584622781564-1d9876a13d1a?auto=format&fit=crop&w=400&q=80" },
-  { id: 9, name: "Floor Cleaner", price: "GH₵ 50", image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=400&q=80" },
-  { id: 10, name: "Paper Towels", price: "GH₵ 40", image: "https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=400&q=80" },
-  { id: 11, name: "Trash Bags", price: "GH₵ 25", image: "https://images.unsplash.com/photo-1591193512964-4072210519de?auto=format&fit=crop&w=400&q=80" },
-  { id: 12, name: "Sponges (Pack of 4)", price: "GH₵ 15", image: "https://images.unsplash.com/photo-1583947581924-860bda6a26df?auto=format&fit=crop&w=400&q=80" },
-  { id: 13, name: "Bathroom Cleaner", price: "GH₵ 35", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
-  { id: 14, name: "Bleach", price: "GH₵ 28", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" },
-  { id: 15, name: "Laundry Baskets", price: "GH₵ 85", image: "https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&w=400&q=80" },
-  { id: 16, name: "Ironing Board Cover", price: "GH₵ 60", image: "https://images.unsplash.com/photo-1560614382-3334f3477ef3?auto=format&fit=crop&w=400&q=80" },
-  { id: 17, name: "Hand Towels", price: "GH₵ 45", image: "https://images.unsplash.com/photo-1604176354204-926873ff3da9?auto=format&fit=crop&w=400&q=80" },
-  { id: 18, name: "Decorative Pillows", price: "GH₵ 110", image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=400&q=80" },
-  { id: 19, name: "Vase", price: "GH₵ 130", image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=400&q=80" },
-  { id: 20, name: "Picture Frames", price: "GH₵ 75", image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h1',  name: "Egyptian Cotton Towels",  price: 350, image: "https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h2',  name: "Laundry Detergent",       price: 55,  image: "https://images.unsplash.com/photo-1585670084831-72d1f4a2e342?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h3',  name: "Premium Dish Soap",       price: 25,  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h4',  name: "Air Freshener Set",       price: 80,  image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h5',  name: "Microfibre Cloth Pack",   price: 45,  image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h6',  name: "Floor Mop Set",           price: 130, image: "https://images.unsplash.com/photo-1585670084831-72d1f4a2e342?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h7',  name: "Storage Baskets (3pcs)",  price: 95,  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h8',  name: "Scented Candle Set",      price: 110, image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h9',  name: "Trash Bins (2pcs)",       price: 75,  image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h10', name: "Bathroom Mat Set",        price: 120, image: "https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h11', name: "Clothes Hangers (20pcs)", price: 40,  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h12', name: "Dishwashing Gloves",      price: 20,  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h13', name: "Sponge & Scrubber Set",   price: 15,  image: "https://images.unsplash.com/photo-1585670084831-72d1f4a2e342?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h14', name: "Toilet Cleaner Bundle",   price: 35,  image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h15', name: "Kitchen Roll (6 Pack)",   price: 30,  image: "https://images.unsplash.com/photo-1585670084831-72d1f4a2e342?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h16', name: "Fabric Softener",         price: 45,  image: "https://images.unsplash.com/photo-1585670084831-72d1f4a2e342?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h17', name: "Broom & Dustpan Set",     price: 85,  image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h18', name: "Clothes Drying Rack",     price: 160, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h19', name: "Vacuum Bags (10pcs)",     price: 50,  image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=80" },
+  { id: 'h20', name: "Ironing Board Cover",     price: 65,  image: "https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&w=400&q=80" },
 ];
 
-const HouseholdPage = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Household Essentials | DNKA Supermarket</title>
-        <meta name="description" content="Shop refined cleaning and decor items to elevate your living space at DNKA Supermarket." />
-      </Helmet>
-
-      <div className="post-header" style={{ backgroundImage: 'linear-gradient(rgba(8, 28, 21, 0.8), rgba(8, 28, 21, 0.9)), url("https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=1920&q=80")', padding: '120px 0 80px' }}>
-        <div className="container">
-          <h1>Household Essentials</h1>
-          <p style={{ marginTop: '20px', fontFamily: "'Playfair Display', serif", fontSize: '20px', opacity: 0.9 }}>Refined cleaning and decor items to elevate your living space.</p>
+const HouseholdPage = () => (
+  <>
+    <Helmet>
+      <title>Household Essentials | DNKA Supermarket</title>
+      <meta name="description" content="Quality household supplies and cleaning essentials at DNKA Supermarket." />
+    </Helmet>
+    <div className="post-header" style={{ backgroundImage: 'linear-gradient(rgba(8,28,21,0.8),rgba(8,28,21,0.9)),url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80")', padding: '120px 0 80px' }}>
+      <div className="container">
+        <h1>Household Essentials</h1>
+        <p style={{ marginTop: '20px', fontFamily: "'Playfair Display',serif", fontSize: '20px', opacity: 0.9 }}>Everything you need to keep your home pristine.</p>
+      </div>
+    </div>
+    <section className="section bg-white" style={{ paddingTop: '40px' }}>
+      <div className="container">
+        <div className="sub-categories">
+          <button className="category-pill active">All Essentials</button>
+          <button className="category-pill">Cleaning</button>
+          <button className="category-pill">Laundry</button>
+          <button className="category-pill">Storage</button>
+          <button className="category-pill">Home Décor</button>
+        </div>
+        <div className="product-grid">
+          {products.map(p => (
+            <div className="product-card" key={p.id}>
+              <div className="product-img" style={{ backgroundImage: `url("${p.image}")` }}></div>
+              <h3>{p.name}</h3>
+              <p className="product-price">GH₵ {p.price}</p>
+              <AddToCartBtn product={p} />
+            </div>
+          ))}
         </div>
       </div>
-
-      <section className="section bg-white" style={{ paddingTop: '40px' }}>
-        <div className="container">
-          <div className="sub-categories">
-            <button className="category-pill active">All Household</button>
-            <button className="category-pill">Cleaning Supplies</button>
-            <button className="category-pill">Towels & Linens</button>
-            <button className="category-pill">Home Decor</button>
-            <button className="category-pill">Laundry</button>
-          </div>
-
-          <div className="product-grid">
-            {products.map((product) => (
-              <div className="product-card" key={product.id}>
-                <div className="product-img" style={{ backgroundImage: `url("${product.image}")` }}></div>
-                <h3>{product.name}</h3>
-                <p className="product-price">{product.price}</p>
-                <button className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '12px', width: '100%', marginTop: '10px' }}>
-                  <ShoppingCart size={14} style={{display: 'inline', marginRight: '5px', verticalAlign: 'middle'}}/> Add to Cart
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
+    </section>
+  </>
+);
 
 export default HouseholdPage;

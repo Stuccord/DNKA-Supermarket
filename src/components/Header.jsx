@@ -1,12 +1,14 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Search, User, Menu, ChevronDown, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useCart } from '../context/CartContext';
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const { cartCount } = useCart();
 
   // Handle scroll effect
   useEffect(() => {
@@ -85,7 +87,10 @@ const Header = () => {
             <NavLink to="/contact">Contact</NavLink>
           </div>
          <div className="nav-icons">
-            <Link to="/cart" className="icon-btn" aria-label="Cart"><ShoppingCart size={22} /></Link>
+            <Link to="/cart" className="icon-btn cart-icon-btn" aria-label="Cart">
+              <ShoppingCart size={22} />
+              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+            </Link>
             <button className="icon-btn" aria-label="User Account"><User size={22} /></button>
             <button 
               className="icon-btn mobile-menu-btn" 

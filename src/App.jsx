@@ -19,10 +19,13 @@ import ContactPage from './pages/ContactPage';
 import CartPage from './pages/CartPage';
 import SearchPage from './pages/SearchPage';
 
+import { CartProvider } from './context/CartContext';
+
 function App() {
   return (
     <HelmetProvider>
-      <Router>
+      <CartProvider>
+        <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -49,7 +52,8 @@ function App() {
             <Route path="*" element={<Home />} />
           </Route>
         </Routes>
-      </Router>
+        </Router>
+      </CartProvider>
     </HelmetProvider>
   );
 }
