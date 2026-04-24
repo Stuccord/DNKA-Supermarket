@@ -90,6 +90,11 @@ const Header = () => {
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-content">
+          <Link to="/" className="logo" style={{ marginBottom: '30px', fontSize: '28px' }} onClick={() => setIsMobileMenuOpen(false)}>
+            <ShoppingCart size={24} color="#d4af37" />
+            DNKA<span>Mart</span>
+          </Link>
+          
           <form className="mobile-search" onSubmit={handleSearch}>
             <input 
               type="text" 
