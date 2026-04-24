@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} DNKA Supermarket. All rights reserved. | Refined Shopping in Koforidua.</p>
+          <p>&copy; {new Date().getFullYear()} DNKA Supermarket. All rights reserved. | Refined Shopping in Koforidua. <br/> <span style={{ opacity: 0.7, fontSize: '12px' }}>Crafted with excellence by <a href="https://stuccord.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-orange)', textDecoration: 'underline' }}>stuccord.com</a></span></p>
         </div>
       </div>
     </footer>
