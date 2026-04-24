@@ -1,8 +1,42 @@
 import { Helmet } from 'react-helmet-async';
 import { ShoppingCart, Heart, MapPin, Phone, Package, Tag, Clock, ShieldCheck, Award, ThumbsUp, Truck, Wifi, Coffee, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      title: "Classic Quality, Modern Convenience",
+      subtitle: "Experience the finest selection of premium groceries and fresh produce in the heart of Koforidua.",
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
+      cta: "Explore Freshness",
+      link: "/produce"
+    },
+    {
+      title: "Elevate Your Home Lifestyle",
+      subtitle: "Discover our curated collection of elegant kitchenware and premium household essentials.",
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80",
+      cta: "Shop Elegance",
+      link: "/kitchenware"
+    },
+    {
+      title: "The Ultimate Mall Experience",
+      subtitle: "From modern electronics to gourmet pantry treasures, find everything you need under one roof.",
+      image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1920&q=80",
+      cta: "View Directory",
+      link: "#categories"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
     <>
       <Helmet>
@@ -11,15 +45,37 @@ const Home = () => {
         <meta name="keywords" content="supermarket in Koforidua, premium grocery Koforidua, classic household items Ghana" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="hero animate-fade-in">
-        <div className="container">
-          <h1>Classic Quality, Modern Convenience</h1>
-          <p>Experience the finest selection of groceries, elegant household items, and more at Koforidua's premier supermarket.</p>
-          <div className="hero-btns">
-            <a href="#location" className="btn btn-primary">Find Our Store</a>
-            <a href="tel:0599087140" className="btn btn-secondary">Contact Us</a>
+      {/* Professional Hero Slider */}
+      <section className="hero-slider">
+        {slides.map((slide, index) => (
+          <div 
+            key={index} 
+            className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `linear-gradient(rgba(8, 28, 21, 0.6), rgba(8, 28, 21, 0.7)), url("${slide.image}")` }}
+          >
+            <div className="container">
+              <div className="hero-slide-content">
+                <span className="hero-tag animate-fade-in">Established Excellence</span>
+                <h1 className="animate-fade-in">{slide.title}</h1>
+                <p className="animate-fade-in">{slide.subtitle}</p>
+                <div className="hero-btns animate-fade-in">
+                  <Link to={slide.link} className="btn btn-primary">{slide.cta}</Link>
+                  <a href="#location" className="btn btn-outline">Visit Store</a>
+                </div>
+              </div>
+            </div>
           </div>
+        ))}
+        
+        {/* Slider Controls */}
+        <div className="slider-dots">
+          {slides.map((_, i) => (
+            <button 
+              key={i} 
+              className={`slider-dot ${i === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(i)}
+            ></button>
+          ))}
         </div>
       </section>
 
