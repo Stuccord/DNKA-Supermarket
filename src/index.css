@@ -256,7 +256,7 @@ ul {
   margin: 0 auto;
   position: relative;
   z-index: 2;
-  padding: 0 20px;
+  padding: 80px 20px 0; /* Add top padding for sticky header */
 }
 
 .hero-tag {
@@ -312,7 +312,7 @@ ul {
 
 .slider-dots {
   position: absolute;
-  bottom: 50px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -361,9 +361,10 @@ ul {
   .hero-slider { height: 600px; min-height: 500px; }
   .hero-slide h1 { font-size: 42px; }
   .hero-slide p { font-size: 18px; margin-bottom: 35px; }
-  .hero-btns { flex-direction: column; gap: 15px; align-items: center; }
-  .hero-btns .btn { min-width: 250px; }
-  .hero-tag { font-size: 12px; padding: 6px 18px; margin-bottom: 20px; }
+  .hero-btns { flex-direction: column; gap: 12px; align-items: center; }
+  .hero-btns .btn { min-width: 220px; padding: 14px 30px; font-size: 13px; }
+  .hero-tag { font-size: 11px; padding: 5px 15px; margin-bottom: 15px; }
+  .hero-slide-content { padding-top: 40px; }
 }
 
 @media (max-width: 480px) {
